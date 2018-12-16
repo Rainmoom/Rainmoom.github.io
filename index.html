@@ -1,0 +1,663 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head> 
+  <title></title> 
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<style type = "text/css">
+	*{
+	letter-spacing:2px;
+	}
+	body
+	{
+		margin:0;
+		padding:0;
+		background:url("img/bg.jpg") repeat-x;
+		background-color:rgb(221,244,255);
+	
+	}
+		
+	.contain{
+	width:1000px;
+	background-color:rgb(255,255,255);
+	margin:50px auto;
+	padding:30px 50px;
+	box-shadow:1px 1px 50px rgb(100,100,100);
+	border-radius:10px;
+	}
+	.contain > div{
+		width:800px;
+		border-bottom:2px solid rgb(180,180,180);
+		padding: 20px 0px 20px 50px;
+		
+		
+	}
+	.contain > div:hover{
+	background-color:rgb(248,248,248);
+	border-left:10px solid blue;
+	border-right:10px solid blue;
+	padding-left:40px;
+	padding-bottom:10px;
+	font-size:20px;
+	}
+	ul{
+	list-style:none;
+	line-height:30px;
+	}
+		.nameInput{
+			margin: 10px;
+			padding: 10px;
+			width: 500px;
+			font-size: 20px;
+			border: 1px solid black;
+			border-radius: 10px;
+			
+		}
+		.tiankong {
+			width: 100px;
+			border: 0px;
+			font-size: 18px;
+			font-weight: bold;
+			border-bottom: 1px solid black;
+		}
+	.button{
+			margin: 50px auto;
+		padding: 10px 30px;
+		font-size: 30px;
+		margin-left:350px;
+		color: white;
+		font-weight: bold;
+		border-radius: 10px;
+		background-color:rgb(7,220,0);
+		outline: none;
+		}
+		.button:hover{
+			
+		}
+		
+	</style>
+	   <script type="text/javascript">
+	  var result [];
+		   </script>
+  <script type="text/javascript">
+	 var result = new Array() ;
+	  var result2 = new Array() ;
+	  var problem = new Array;
+	  var problem2 = new Array;
+	  var answer = new Array;
+	  var answer2 = new Array;
+	  var ci = 0;
+	  problem = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30];
+	  answer = [2,4,4,3,2,3,3,2,3,2,3,2,2,3,2,1,2,4,2,3,3,4,4,2,2,1,3,2,2,1];
+	 
+	  answer2 = ["border","padding","margin","radio","password","<imgsrc=\"ball.jpg\"/>","<bodybgcolor=\"red\"></body>","font-size","font-weight","p{color:blue;font-size:30px;text-align:right;}"];
+	  function inputClick(e,f)
+	  {
+		   
+		  //console.log(e);
+		  //console.log(f);
+		  if (e==problem[e-1]&&f==answer[e-1])
+			  result[e-1] = true;
+		  else
+			  result[e-1] = false;
+		    
+		 // console.log(result[e-1]);
+	  }
+	  function buttonClick()
+	  {
+		  ci++;
+		  var length = 0,length2 = 0;
+		  
+		  var i,score = 0 ,score2 = 0;
+		  
+		  for (i = 0; i < result.length ;i++)
+			  {
+				  if (result[i] == true)
+					  {
+						  score ++;
+						  length++;
+					  }
+				  else if (result[i] == false )
+					  {
+						  length++;
+					  }
+			  }
+		  
+		 var name = document.getElementById("nameInput");
+		  var j = 0;
+		    for (i = 100;i <= 1000 ;i+=100)
+				{
+					
+					var s = document.getElementById(i).value;
+					//console.log(s);
+					s = s.replace(/\s*/g,"");
+					//console.log(s);
+					if (s == "")
+						{
+							j++;
+							continue;
+						}
+						
+					if (s == answer2[j])
+						{
+							result2[j] = true;
+						}
+					else 
+						{
+							result2[j] = false;
+						}
+					j++;
+					
+				}
+		   
+		  for (i = 0; i < result2.length ;i++)
+			  {
+				  if (result2[i] == true)
+					  {
+						  score2 ++;
+						  length2++;
+					  }
+				  else if (result2[i] == false )
+					  {
+						  length2++;
+					  }
+			  }
+		 // console.log(result2[0]);
+		  //console.log(name.value);
+		  alert("姓名:"+name.value+"     提交次数:"+ci+"\n\n选择题共答  "+length+"  道   "+"正确  "+score+"  道题，得  "+score*2+"  分\n\n"+"填空题共答  "+length2+"  道   "+"正确  "+score2+"  道题，得  "+score2*4+"  分\n\n"+"总分：  "+(score*2+score2*4));
+		
+		  
+	  }
+	
+  </script>
+  
+ </head> 
+ <body> 
+  <div class="contain"> 
+  
+	<h1>HTML CSS测验<h5>格创计算机协会网站设计部</h5></h1>
+	  <input type="text" placeholder="输入姓名：" value="" class="nameInput" id="nameInput" />
+	<h3>一,选择题 (共30题，每题2分)</h3>
+   <div > 
+    <div>
+     1.HTML是什么意思？ 
+    </div> 
+    <div > 
+	<ul > 
+      <li> <input  id="1"  name = "1" type="radio" value="1" onclick = "inputClick(id,value)"/> <label>高级文本语言</label></li> 
+      <li> <input  id="1" name = "1"  type="radio" value="2"  onclick = "inputClick(id,value)" /> <label>超文本标记语言</label></li> 
+      <li> <input  id="1"  name = "1" type="radio" value="3" onclick = "inputClick(id,value)"/> <label>扩展标记语言</label></li> 
+      <li> <input  id="1"  name = "1" type="radio" value="4" onclick = "inputClick(id,value)"/> <label>图形化标记语言</label></li> 
+     </ul> 
+    </div> 
+   </div>
+   
+   <div > 
+    <div>
+     2.默认情况下，使用P标签会有啥效果？ 
+    </div> 
+    <div > 
+     <ul> 
+      <li> <input  id="2"  name = "2" type="radio" value="1" onclick = "inputClick(id,value)"/> <label>在文字P所在位置中加入8个空格</label></li> 
+      <li> <input  id="2"  name = "2" type="radio" value="2" onclick = "inputClick(id,value)" /> <label>P后面的文字会变成粗体</label></li> 
+      <li> <input  id="2"  name = "2" type="radio" value="3" onclick = "inputClick(id,value)" /> <label>P后面的文字会变成粗体</label></li> 
+      <li> <input  id="2"  name = "2" type="radio" value="4" onclick = "inputClick(id,value)" /> <label>开始新的一行</label></li> 
+     </ul> 
+    </div>
+
+   </div> 
+   <div > 
+    <div >
+     3.哪一个属性使HTML文档中表格里的单元格在同行进行合并？ 
+    </div> 
+    <div > 
+     <ul > 
+      <li> <input id="3"  name = "3" type="radio" value="1" onclick = "inputClick(id,value)"/> <label>cellspacing</label></li> 
+      <li> <input id="3"  name = "3" type="radio" value="2" onclick = "inputClick(id,value)" /> <label>cellpadding</label></li> 
+      <li> <input id="3"  name = "3" type="radio" value="3" onclick = "inputClick(id,value)" /> <label>rowspan</label></li> 
+      <li> <input id="3"  name = "3" type="radio" value="4" onclick = "inputClick(id,value)"/> <label>colspan</label></li> 
+     </ul> 
+    </div> 
+   </div> 
+   <div > 
+    <div >
+     4.一个文件夹名称叫A，其下有一个叫做test.jpg的文件，和一个名为B的文件夹。B下有一个名为index.html文件，想在index.html中作一个连接，链到test.jpg。以下正确的是： 
+    </div> 
+    <div > 
+     <ul > 
+      <li> <input id="4"  name = "4" type="radio" value="1" onclick = "inputClick(id,value)" /> <label>&lt;a href=“/test.jpg”&gt;…&lt;/a&gt;</label></li> 
+      <li> <input id="4"  name = "4" type="radio" value="2" onclick = "inputClick(id,value)" /> <label>&lt;a href=“c:/test.jpg”&gt;…&lt;/a&gt;</label></li> 
+      <li> <input id="4"  name = "4" type="radio" value="3" onclick = "inputClick(id,value)"/> <label >&lt;a href=“‥/test.jpg”&gt;…&lt;/a&gt;</label></li> 
+      <li> <input id="4"  name = "4" type="radio" value="4" onclick = "inputClick(id,value)"/> <label>&lt;a href=“A/test.jpg”&gt;…&lt;/a&gt;</label></li> 
+     </ul> 
+    </div> 
+   </div> 
+   <div > 
+    <div >
+     5.哪条标签用于使一行文本换行，而不是插入一个新的段落？ 
+    </div> 
+    <div > 
+     <ul > 
+      <li> <input  id="5"  name = "5" type="radio" value="1" onclick = "inputClick(id,value)" /> <label>&lt;td&gt;</label></li> 
+      <li> <input  id="5"  name = "5" type="radio" value="2" onclick = "inputClick(id,value)" /> <label>&lt;br&gt;</label></li> 
+      <li> <input  id="5"  name = "5" type="radio" value="3" onclick = "inputClick(id,value)"/> <label >&lt;p&gt;</label></li> 
+      <li> <input  id="5"  name = "5" type="radio" value="4" onclick = "inputClick(id,value)" /> <label>&lt;h1&gt;</label></li> 
+     </ul> 
+    </div> 
+   </div> 
+   <div > 
+    <div >
+     6.html标签中，哪个标签表示表格？ 
+    </div> 
+    <div > 
+     <ul> 
+      <li> <input  id="6"  name = "6" type="radio" value="1" onclick = "inputClick(id,value)" /> <label>&lt;h1&gt;</label></li> 
+      <li> <input  id="6"  name = "6" type="radio" value="2" onclick = "inputClick(id,value)" /> <label>&lt;td&gt;</label></li> 
+      <li> <input  id="6"  name = "6" type="radio" value="3" onclick = "inputClick(id,value)" /> <label >&lt;table&gt;</label></li> 
+      <li> <input  id="6"  name = "6" type="radio" value="4" onclick = "inputClick(id,value)" /> <label>&lt;tbody&gt;</label></li> 
+     </ul> 
+    </div> 
+   </div> 
+   <div> 
+    <div>
+     7.我们想要让表格的边框在页面中不显示出来，用什么方法可以做到呢？ 
+    </div> 
+    <div > 
+     <ul> 
+      <li> <input id="7"  name = "7" type="radio" value="1" onclick = "inputClick(id,value)" /> <label>bgcolor=&quot;white&quot;</label></li> 
+      <li> <input id="7"  name = "7" type="radio" value="2" onclick = "inputClick(id,value)" /> <label>bgcolor=&quot;null&quot;</label></li> 
+      <li> <input id="7"  name = "7" type="radio" value="3" onclick = "inputClick(id,value)" /> <label >border=&quot;0&quot;</label></li> 
+      <li> <input id="7"  name = "7" type="radio" value="4" onclick = "inputClick(id,value)" /> <label>bordercolor=&quot;white&quot;</label></li> 
+     </ul> 
+    </div> 
+   </div> 
+   <div> 
+    <div>
+     8.我们想要为网页中的文字加上超链接，可以采用哪个标签？ 
+    </div> 
+    <div > 
+     <ul> 
+      <li> <input id="8"  name = "8" type="radio" value="1" onclick = "inputClick(id,value)"/> <label>&lt;href&gt;</label></li> 
+      <li> <input id="8"  name = "8" type="radio" value="2" onclick = "inputClick(id,value)"/> <label>&lt;a&gt;</label></li> 
+      <li> <input id="8"  name = "8" type="radio" value="3" onclick = "inputClick(id,value)"/> <label>&lt;link&gt;</label></li> 
+      <li> <input id="8"  name = "8" type="radio" value="4" onclick = "inputClick(id,value)"/> <label>&lt;src&gt;</label></li> 
+     </ul> 
+    </div> 
+   </div> 
+   <div> 
+    <div>
+     9.A文件夹与B文件夹是同级文件夹，其中A下有a.html，B下有b.html文件，现在我们希望在a.html文件中创建超链接，链接到b.html，应该在a.html页面代码中如何描述链接内容？ 
+    </div> 
+    <div > 
+     <ul> 
+      <li> <input id="9"  name = "9" type="radio" value="1" onclick = "inputClick(id,value)"/> <label>b.html</label></li> 
+      <li> <input id="9"  name = "9" type="radio" value="2" onclick = "inputClick(id,value)"/> <label>././././B/b.htm</label></li> 
+      <li> <input id="9"  name = "9" type="radio" value="3" onclick = "inputClick(id,value)"/> <label>../B/b.html</label></li> 
+      <li> <input id="9"  name = "9" type="radio" value="4" onclick = "inputClick(id,value)"/> <label>../../b.htm</label></li> 
+     </ul> 
+    </div> 
+   </div> 
+   <div> 
+    <div>
+     10.我们想要在HTML文档中插入图像，可以使用哪个标签？ 
+    </div> 
+    <div > 
+     <ul> 
+      <li> <input id="10"  name = "10" type="radio" value="1" onclick = "inputClick(id,value)"/> <label>&lt;pic&gt;</label></li> 
+      <li> <input id="10"  name = "10" type="radio" value="2" onclick = "inputClick(id,value)"/> <label>&lt;img&gt;</label></li> 
+      <li> <input id="10"  name = "10" type="radio" value="3" onclick = "inputClick(id,value)"/> <label>&lt;image&gt;</label></li> 
+      <li> <input id="10"  name = "10" type="radio" value="4" onclick = "inputClick(id,value)"/> <label>&lt;picture&gt;</label></li> 
+     </ul> 
+    </div> 
+   </div> 
+	  
+	   <div> 
+    <div>
+     11.div p{}是什么选择器 
+    </div> 
+    <div > 
+     <ul> 
+      <li> <input id="11"  name = "11" type="radio" value="1" onclick = "inputClick(id,value)"/> <label>类选择器</label></li> 
+      <li> <input id="11"  name = "11" type="radio" value="2" onclick = "inputClick(id,value)"/> <label>群组选择器</label></li> 
+      <li> <input id="11"  name = "11" type="radio" value="3" onclick = "inputClick(id,value)"/> <label>后代选择器</label></li> 
+      <li> <input id="11"  name = "11" type="radio" value="4" onclick = "inputClick(id,value)"/> <label>全局选择器</label></li> 
+     </ul> 
+    </div> 
+   </div> 
+ 
+   <div> 
+    <div>
+     12.下列的HTML中哪个可以插入一条水平线？ 
+    </div> 
+    <div > 
+     <ul> 
+      <li> <input id="12"  name = "12" type="radio" value="1" onclick = "inputClick(id,value)"/> <label>&lt;br&gt;</label></li> 
+      <li> <input id="12"  name = "12" type="radio" value="2" onclick = "inputClick(id,value)"/> <label>&lt;hr&gt;</label></li> 
+      <li> <input id="12"  name = "12" type="radio" value="3" onclick = "inputClick(id,value)"/> <label>&lt;p&gt;</label></li> 
+      <li> <input id="12"  name = "12" type="radio" value="4" onclick = "inputClick(id,value)"/> <label>&lt;break&gt;</label></li> 
+     </ul> 
+    </div> 
+   </div> 
+   <div> 
+    <div>
+    13. 哪个html标签有粗体效果 
+    </div> 
+    <div > 
+     <ul> 
+      <li> <input id="13"  name = "13" type="radio" value="1" onclick = "inputClick(id,value)"/> <label>&lt;bb&gt;</label></li> 
+      <li> <input id="13"  name = "13" type="radio" value="2" onclick = "inputClick(id,value)"/> <label>&lt;b&gt;</label></li> 
+      <li> <input id="13"  name = "13" type="radio" value="3" onclick = "inputClick(id,value)"/> <label>&lt;bold&gt;</label></li> 
+      <li> <input id="13"  name = "13" type="radio" value="4" onclick = "inputClick(id,value)"/> <label>&lt;bld&gt;</label></li> 
+     </ul> 
+    </div> 
+   </div> 
+  
+   <div> 
+    <div>
+     14.下列的HTML中哪个标签是超链接？ 
+    </div> 
+    <div > 
+     <ul> 
+      <li> <input id="14"  name = "14" type="radio" value="1" onclick = "inputClick(id,value)"/> <label>&lt;a url=&quot;http://www.w3schools.com&quot;&gt;W3Schools.com&lt;/a&gt;</label></li> 
+      <li> <input id="14"  name = "14" type="radio" value="2" onclick = "inputClick(id,value)"/> <label>&lt;a&gt;http://www.w3schools.com&lt;/a&gt;</label></li> 
+      <li> <input id="14"  name = "14" type="radio" value="3" onclick = "inputClick(id,value)"/> <label>&lt;a href=&quot;http://www.w3schools.com&quot;&gt;W3Schools&lt;/a&gt;</label></li> 
+      <li> <input id="14"  name = "14" type="radio" value="4" onclick = "inputClick(id,value)"/> <label>&lt;a src=&quot;http://www.w3schools.com&quot;&gt;W3Schools.com&lt;/a&gt;</label></li> 
+     </ul> 
+    </div> 
+   </div> 
+   <div> 
+    <div>
+     15.以下选项中，哪个全部都是表格标签？ 
+    </div> 
+    <div > 
+     <ul> 
+      <li> <input id="15"  name = "15" type="radio" value="1" onclick = "inputClick(id,value)"/> <label>&lt;table&gt;&lt;head&gt;&lt;tfoot&gt;</label></li> 
+      <li> <input id="15"  name = "15" type="radio" value="2" onclick = "inputClick(id,value)"/> <label>&lt;table&gt;&lt;tr&gt;&lt;td&gt;</label></li> 
+      <li> <input id="15"  name = "15" type="radio" value="3" onclick = "inputClick(id,value)"/> <label>&lt;table&gt;&lt;tr&gt;&lt;tt&gt;</label></li> 
+      <li> <input id="15"  name = "15" type="radio" value="4" onclick = "inputClick(id,value)"/> <label>&lt;thead&gt;&lt;body&gt;&lt;tr&gt;</label></li> 
+     </ul> 
+    </div> 
+   </div> 
+   <div> 
+    <div>
+     16.请选择可以使单元格中的内容进行左排列的正确HTML标签 
+    </div> 
+    <div > 
+     <ul> 
+      <li> <input id="16"  name = "16" type="radio" value="1" onclick = "inputClick(id,value)"/> <label>&lt;td align=&quot;left&quot;&gt;</label></li> 
+      <li> <input id="16"  name = "16" type="radio" value="2" onclick = "inputClick(id,value)"/> <label>&lt;td valign=&quot;left&quot;&gt;</label></li> 
+      <li> <input id="16"  name = "16" type="radio" value="3" onclick = "inputClick(id,value)"/> <label>&lt;td leftalign&gt;</label></li> 
+      <li> <input id="16"  name = "16" type="radio" value="4" onclick = "inputClick(id,value)"/> <label>&lt;tdleft&gt;</label></li> 
+     </ul> 
+    </div> 
+   </div> 
+   <div> 
+    <div>
+     17.哪个列表标签是带有数字的列表 
+    </div> 
+    <div > 
+     <ul> 
+      <li> <input id="17"  name = "17" type="radio" value="1" onclick = "inputClick(id,value)"/> <label>ul</label></li> 
+      <li> <input id="17"  name = "17" type="radio" value="2" onclick = "inputClick(id,value)"/> <label>ol</label></li> 
+      <li> <input id="17"  name = "17" type="radio" value="3" onclick = "inputClick(id,value)"/> <label>dl</label></li> 
+      <li> <input id="17"  name = "17" type="radio" value="4" onclick = "inputClick(id,value)"/> <label>list</label></li> 
+     </ul> 
+    </div> 
+   </div> 
+   <div> 
+    <div>
+     18.哪个列表标签是带有原点的列表 
+    </div> 
+    <div > 
+     <ul> 
+      <li> <input id="18"  name = "18" type="radio" value="1" onclick = "inputClick(id,value)"/> <label>ol</label></li> 
+      <li> <input id="18"  name = "18" type="radio" value="2" onclick = "inputClick(id,value)"/> <label>dl</label></li> 
+      <li> <input id="18"  name = "18" type="radio" value="3" onclick = "inputClick(id,value)"/> <label>list</label></li> 
+      <li> <input id="18"  name = "18" type="radio" value="4" onclick = "inputClick(id,value)"/> <label>ul</label></li> 
+     </ul> 
+    </div> 
+   </div> 
+	  
+	     <div> 
+    <div>
+     19.CSS如何改变某个元素的文本颜色？ 
+    </div> 
+    <div class="div_table_radio_question" > 
+     <ul> 
+      <li> <input id="19"  name = "19" type="radio" value="1" onclick = "inputClick(id,value)"/> <label>text-color:
+        <!--</label--></label></li> 
+      <li> <input id="19"  name = "19" type="radio" value="2" onclick = "inputClick(id,value)" /> <label>color:</label></li> 
+      <li> <input id="19"  name = "19" type="radio" value="3" onclick = "inputClick(id,value)"/> <label>fgcolor:</label></li> 
+      <li> <input id="19"  name = "19" type="radio" value="4" onclick = "inputClick(id,value)"/> <label>bgcolor:</label></li> 
+     </ul> 
+    </div> 
+   </div> 
+ 
+   <div> 
+    <div>
+     20.下列的HTML中哪个是复选框？ 
+    </div> 
+    <div > 
+     <ul> 
+      <li> <input id="20"  name = "20" type="radio" value="1" onclick = "inputClick(id,value)"/> <label>&lt;input type=&quot;check&quot;&gt;</label></li> 
+      <li> <input id="20"  name = "20" type="radio" value="2" onclick = "inputClick(id,value)"/> <label>&lt;checkbox&gt;</label></li> 
+      <li> <input id="20"  name = "20" type="radio" value="3" onclick = "inputClick(id,value)"/> <label>&lt;input type=&quot;checkbox&quot;&gt;</label></li> 
+      <li> <input id="20"  name = "20" type="radio" value="4" onclick = "inputClick(id,value)"/> <label>&lt;check&gt;</label></li> 
+     </ul> 
+    </div> 
+   </div> 
+   <div> 
+    <div>
+     21.下列的HTML中哪个是文本框？ 
+    </div> 
+    <div > 
+     <ul> 
+      <li> <input id="21"  name = "21" type="radio" value="1" onclick = "inputClick(id,value)"/> <label>&lt;input type=&quot;textfield&quot;&gt;</label></li> 
+      <li> <input id="21"  name = "21" type="radio" value="2" onclick = "inputClick(id,value)"/> <label>&lt;textinput type=&quot;text&quot;&gt;</label></li> 
+      <li> <input id="21"  name = "21" type="radio" value="3" onclick = "inputClick(id,value)"/> <label>&lt;input type=&quot;text&quot;&gt;</label></li> 
+      <li> <input id="21"  name = "21" type="radio" value="4" onclick = "inputClick(id,value)"/> <label>&lt;textfield&gt;</label></li> 
+     </ul> 
+    </div> 
+   </div> 
+   <div> 
+    <div>
+     22.下列的HTML中哪个是下拉列表 
+    </div> 
+    <div > 
+     <ul> 
+      <li> <input id="22"  name = "22" type="radio" value="1" onclick = "inputClick(id,value)"/> <label>&lt;list&gt;</label></li> 
+      <li> <input id="22"  name = "22" type="radio" value="2" onclick = "inputClick(id,value)"/> <label>&lt;input type=&quot;list&quot;&gt;</label></li> 
+      <li> <input id="22"  name = "22" type="radio" value="3" onclick = "inputClick(id,value)"/> <label>&lt;input type=&quot;dropdown&quot;&gt;</label></li> 
+      <li> <input id="22"  name = "22" type="radio" value="4" onclick = "inputClick(id,value)"/> <label>&lt;select&gt;</label></li> 
+     </ul> 
+    </div> 
+   </div> 
+   <div> 
+    <div>
+     23.下列的HTML中哪个是多行文本域？ 
+    </div> 
+    <div > 
+     <ul> 
+      <li> <input id="23"  name = "23" type="radio" value="1" onclick = "inputClick(id,value)"/> <label>&lt;textarea&gt;</label></li> 
+      <li> <input id="23"  name = "23" type="radio" value="2" onclick = "inputClick(id,value)"/> <label>&lt;input type=&quot;textarea&quot;&gt;</label></li> 
+      <li> <input id="23"  name = "23" type="radio" value="3" onclick = "inputClick(id,value)"/> <label>&lt;input type=&quot;textbox&quot;&gt;</label></li> 
+      <li> <input id="23"  name = "23" type="radio" value="4" onclick = "inputClick(id,value)"/> <label>&lt;textarea&gt;&lt;/textarea&gt;</label></li> 
+     </ul> 
+    </div> 
+   </div> 
+   <div> 
+    <div>
+    24. 以下的HTML中，哪个是正确引用外部样式表的方法？ 
+    </div> 
+    <div > 
+     <ul> 
+      <li> <input id="24"  name = "24" type="radio" value="1" onclick = "inputClick(id,value)"/> <label>&lt;style src=&quot;mystyle.css&quot;&gt;</label></li> 
+      <li> <input id="24"  name = "24" type="radio" value="2" onclick = "inputClick(id,value)"/> <label>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot;href=&quot;mystyle.css&quot;&gt;</label></li> 
+      <li> <input id="24"  name = "24" type="radio" value="3" onclick = "inputClick(id,value)"/> <label>&lt;stylesheet&gt;mystyle.css&lt;/stylesheet&gt;</label></li> 
+      <li> <input id="24"  name = "24" type="radio" value="4" onclick = "inputClick(id,value)"/> <label>&lt;style href =&quot;mystyle.css&quot;&gt;</label></li> 
+     </ul> 
+    </div> 
+   </div> 
+   <div> 
+    <div>
+     25.在HTML文档中，引用外部样式表的正确位置是？ 
+    </div> 
+    <div > 
+     <ul> 
+      <li> <input id="25"  name = "25" type="radio" value="1" onclick = "inputClick(id,value)"/> <label>文档的末尾</label></li> 
+      <li> <input id="25"  name = "25" type="radio" value="2" onclick = "inputClick(id,value)"/> <label>&lt;head&gt;部分</label></li> 
+      <li> <input id="25"  name = "25" type="radio" value="3" onclick = "inputClick(id,value)"/> <label>文档的顶部</label></li> 
+      <li> <input id="25"  name = "25" type="radio" value="4" onclick = "inputClick(id,value)"/> <label>&lt;body&gt;部分</label></li> 
+     </ul> 
+    </div> 
+   </div> 
+   <div> 
+    <div>
+     26.哪个HTML标签可用来定义内联样式表？ 
+    </div> 
+    <div > 
+     <ul> 
+      <li> <input id="26"  name = "26" type="radio" value="1" onclick = "inputClick(id,value)"/> <label>&lt;style&gt;</label></li> 
+      <li> <input id="26"  name = "26" type="radio" value="2" onclick = "inputClick(id,value)"/> <label>&lt;script&gt;</label></li> 
+      <li> <input id="26"  name = "26" type="radio" value="3" onclick = "inputClick(id,value)"/> <label>&lt;link&gt;</label></li> 
+      <li> <input id="26"  name = "26" type="radio" value="4" onclick = "inputClick(id,value)"/> <label>&lt;css&gt;</label></li> 
+     </ul> 
+    </div> 
+   </div> 
+   <div> 
+    <div>
+     27.下列哪个选项的CSS语法是正确的？ 
+    </div> 
+    <div > 
+     <ul> 
+      <li> <input id="27"  name = "27" type="radio" value="1" onclick = "inputClick(id,value)"/> <label>body:color=black</label></li> 
+      <li> <input id="27"  name = "27" type="radio" value="2" onclick = "inputClick(id,value)"/> <label>{body:color=black(body}</label></li> 
+      <li> <input id="27"  name = "27" type="radio" value="3" onclick = "inputClick(id,value)"/> <label>body{color: black}</label></li> 
+      <li> <input id="27"  name = "27" type="radio" value="4" onclick = "inputClick(id,value)"/> <label>{body;color:black}</label></li> 
+     </ul> 
+    </div> 
+   </div> 
+   <div> 
+    <div>
+     28.如何为所有的h1标签添加背景颜色？ 
+    </div> 
+    <div > 
+     <ul> 
+      <li> <input id="28"  name = "28" type="radio" value="1" onclick = "inputClick(id,value)"/> <label>h1.all {background-color:#FFFFFF}</label></li> 
+      <li> <input id="28"  name = "28" type="radio" value="2" onclick = "inputClick(id,value)"/> <label>h1{background-color:#FFFFFF}</label></li> 
+      <li> <input id="28"  name = "28" type="radio" value="3" onclick = "inputClick(id,value)"/> <label>all.h1 {background-color:#FFFFFF}</label></li> 
+      <li> <input id="28"  name = "28" type="radio" value="4" onclick = "inputClick(id,value)"/> <label>.h1 {background-color:#FFFFFF}</label></li> 
+     </ul> 
+    </div> 
+   </div> 
+   <div> 
+    <div>
+     29.在CSS样式中以下哪个选项不属于选择器？ 
+    </div> 
+    <div > 
+     <ul> 
+      <li> <input id="29"  name = "29" type="radio" value="1" onclick = "inputClick(id,value)"/> <label>标签选择器</label></li> 
+      <li> <input id="29"  name = "29" type="radio" value="2" onclick = "inputClick(id,value)"/> <label>#选择器</label></li> 
+      <li> <input id="29"  name = "29" type="radio" value="3" onclick = "inputClick(id,value)"/> <label>类选择器</label></li> 
+      <li> <input id="29"  name = "29" type="radio" value="4" onclick = "inputClick(id,value)"/> <label>id选择器</label></li> 
+     </ul> 
+    </div> 
+   </div> 
+   
+   <div> 
+    <div>
+     30.外部样式表的后缀名为？ 
+    </div> 
+    <div > 
+     <ul> 
+      <li> <input id="30"  name = "30" type="radio" value="1" onclick = "inputClick(id,value)"/> <label>.css
+        <!--</label--></label></li> 
+      <li> <input id="30"  name = "30" type="radio" value="2" onclick = "inputClick(id,value)"/> <label>.style</label></li> 
+      <li> <input id="30"  name = "30" type="radio" value="3" onclick = "inputClick(id,value)"/> <label>.html</label></li> 
+      <li> <input id="30"  name = "30" type="radio" value="4" onclick = "inputClick(id,value)"/> <label>.txt</label></li> 
+     </ul> 
+    </div> 
+   </div> 
+  
+	<h3>二,填空题 (共10空，每空4分)</h3>
+	  
+	  <div> 
+		  <img src="img/ti1.JPG" width="450" height="300">
+    <div style="margin-top: 10px;">
+     1.图中是一个盒模型，其中<span style="color: rgb(61,161,223);">蓝色</span>部分为盒子的边框，中间<span style="color:red;">红色</span>部分为盒子内容,则图中<span style="color: rgb(61,161,223);">蓝色</span>边框的颜色，大小等属性可以用css中
+		<input type="text" id="100" value="" class="tiankong" >
+		属性控制，图中<span style="color: rgb(188,118,238);">紫色</span>部分的大小可以用css中
+		<input type="text" id="200" value="" class="tiankong">
+		属性控制，图中<span style="color: rgb(255,255,0);">黄色</span>部分的大小可以用css中
+		<input type="text" id="300" value="" class="tiankong">
+		属性控制，它们还都可以加上-top，-bottom，-left，-right分别控制上下左右
+		
+    </div> 
+   			
+   </div> 
+	  
+	 <div> 
+		
+    <div >
+    2.在HTML上,将表单中input元素的type属性值设置为
+		<input type="text" id="400" value="" class="tiankong">
+		时,用于单选框,可通过相同的name属性联系这些单选框。
+
+    </div> 
+   			
+   </div> 
+	  
+	  
+<div> 
+		
+    <div >
+   3.对于标签〈input type="*"〉,如果希望实现密码框效果,*值是
+	<input type="text" id="500" value="" class="tiankong">
+    </div> 
+   			
+   </div> 
+	  
+	  
+	  <div> 
+		
+    <div >
+   4.要使得在网页上显示在当前文件夹下的图片“ball.jpg”，应该写的代码是
+		<input style="width: 500px;" type="text" id="600" value="" class="tiankong">
+    </div> 
+   			
+   </div> 
+	  
+	  	  
+	  <div> 
+		
+    <div >
+   5.要使网页的背景颜色为红色，其html代码应为
+		<input style="width: 600px;" type="text" id="700" value="" class="tiankong">
+    </div> 
+   			
+   </div> 
+	  
+	   <div> 
+		
+    <div >
+   6.css设置文字大小的属性<input type="text" id="800" value="" class="tiankong">
+		和设置文字粗细的属性<input style="width: 150px;" type="text" id="900" value="" class="tiankong">
+		
+    </div> 
+   			
+   </div> 
+	  
+	    
+	   <div> 
+		
+    <div >
+   7.通过css将页面中所有的p标签里的文字设置为颜色：blue，字体大小：30px，水平对齐：right，(注意顺序,每条属性后都有分号)<input style = "width: 1000px" type="text" id="1000" value="" class="tiankong">
+		
+    </div> 
+   			
+   </div> 
+	  
+	  
+	  <button title="点击前确认所有题目已全部答完，只记录第一次提交所得成绩" onClick="buttonClick()" class="button">提交</button>
+  </div> 
+ </body>
+</html>
